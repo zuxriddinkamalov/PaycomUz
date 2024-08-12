@@ -39,7 +39,7 @@ class CheckOrder(Paycom):
         order = Order.objects.filter(order_no=account["order_id"], is_finished=False).first()
 
         if not order:
-            return self.ORDER_NOT_FOND
+            return self.ORDER_NOT_FOUND
         if order.product.price * 100 != amount:
             return self.INVALID_AMOUNT
         
@@ -49,7 +49,7 @@ class CheckOrder(Paycom):
         order = Order.objects.filter(order_no=transaction.order_key).first()
 
         if not order:
-            return self.ORDER_NOT_FOND
+            return self.ORDER_NOT_FOUND
         
         order.is_finished = True
         order.save()

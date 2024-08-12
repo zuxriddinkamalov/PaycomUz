@@ -3,7 +3,7 @@ from .methods_subscribe_api import PayComResponse
 
 class Paycom(PayComResponse):
     ORDER_FOUND = 200
-    ORDER_NOT_FOND = -31050
+    ORDER_NOT_FOUND = -31050
     INVALID_AMOUNT = -31001
 
     def check_order(self, amount, account, *args, **kwargs):
