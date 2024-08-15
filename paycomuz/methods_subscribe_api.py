@@ -12,7 +12,7 @@ DEV = settings.PAYCOM_SETTINGS.get('DEV', False)
 
 
 class PayComResponse(object):
-    LINK = 'https://checkout.test.paycom.uz' if DEV else 'https://checkout.paycom.uz'
+    LINK = 'https://test.paycom.uz' if DEV else 'https://checkout.paycom.uz'
 
     def create_initialization(self, amount: Decimal, order_id: str, return_url: str) -> str:
         """
