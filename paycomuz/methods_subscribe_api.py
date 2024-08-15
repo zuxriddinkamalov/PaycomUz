@@ -8,15 +8,16 @@ assert settings.PAYCOM_SETTINGS['ACCOUNTS'].get('KEY') != None
 
 TOKEN = settings.PAYCOM_SETTINGS['KASSA_ID']
 KEY = settings.PAYCOM_SETTINGS['ACCOUNTS']['KEY']
+DEV = settings.PAYCOM_SETTINGS.get('DEV', False)
 
 
 class PayComResponse(object):
-    LINK = 'https://checkout.paycom.uz'
+    LINK = 'https://checkout.test.paycom.uz' if DEV else 'https://checkout.paycom.uz'
 
     def create_initialization(self, amount: Decimal, order_id: str, return_url: str) -> str:
         """
 
-        documentation : https://help.paycom.uz/ru/initsializatsiya-platezhey/otpravka-cheka-po-metodu-get
+        documentation : https://developer.help.paycom.uz/initsializatsiya-platezhey/otpravka-cheka-po-metodu-get/
 
         >>> self.create_initialization(amount=Decimal(5000.00), order_id='1', return_url='https://example.com/success/')
         """
